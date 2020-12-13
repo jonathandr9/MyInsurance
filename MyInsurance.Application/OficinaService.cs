@@ -2,6 +2,7 @@
 using MyInsurance.Domain.Models;
 using MyInsurance.Domain.Services;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MyInsurance.Application
 {
@@ -14,9 +15,9 @@ namespace MyInsurance.Application
         }
 
 
-        public IEnumerable<Oficina> ConsultarOficinas(int codigoAssociacao, string cpfAssociado)
+        public async Task<IEnumerable<Oficina>> ConsultarOficinas(int codigoAssociacao, string cpfAssociado)
         {
-            return _hinovaAdapter.ConsultarOficinas(codigoAssociacao, cpfAssociado);
+            return await _hinovaAdapter.ConsultarOficinas(codigoAssociacao, cpfAssociado);
         }
     }
 }

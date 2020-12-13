@@ -4,6 +4,7 @@ using MyInsurance.Domain.Adapters;
 using MyInsurance.Domain.Models;
 using MyInsurance.Domain.Services;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace MyInsurance.Tests
@@ -12,7 +13,7 @@ namespace MyInsurance.Tests
     {
         [Fact]
         [Trait("ConsultarOficinas","Oficina")]
-        public void ConsultarOficinas_Oficina_Success()
+        public async Task ConsultarOficinas_Oficina_Success()
         {
             //Arrange
             Oficina oficina = new Oficina()
@@ -37,11 +38,11 @@ namespace MyInsurance.Tests
             oficinasExpected.Add(oficina);
 
             Moq.Mock<IHinovaAdapter> sqlAdapterMoq = new Moq.Mock<IHinovaAdapter>();
-            sqlAdapterMoq.Setup(x => x.ConsultarOficinas(It.IsAny<int>(), It.IsAny<string>())).Returns(oficinasExpected);
+            sqlAdapterMoq.Setup(x => x.ConsultarOficinas(It.IsAny<int>(), It.IsAny<string>())).ReturnsAsync(oficinasExpected);
             IOficinaService saleService = new OficinaService(sqlAdapterMoq.Object);
 
             //Act
-            var result = saleService.ConsultarOficinas(601,"");
+            var result = await saleService.ConsultarOficinas(601,"");
 
             //Assert
             Assert.True(result.Equals(oficinasExpected));

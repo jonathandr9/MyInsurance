@@ -1,0 +1,28 @@
+﻿@page
+@model MyInsurance.WebApplication.Views.Oficina.IndexModel
+@{
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Consultar Oficinas</h1>
+    <p>Consulte as Oficinas disponíveis</p>
+</div>
+
+<form class="form-horizontal" role="form">
+    <table class="table">
+        @*<tr>
+                <td> Nome</td>
+                <td>@Html.TextBoxFor(model => model.CodigoAssociacao)</td>
+            </tr>
+            <tr>
+                <td>Cidade</td>
+                <td>@Html.TextBoxFor(model => model.Cidade)</td>
+            </tr>*@
+        <tr>
+            <td colspan="2">
+                <input type="submit" id="search" title="Pesquisar" value="Pesquisar" />
+            </td>
+        </tr>
+    </table>
+</form>

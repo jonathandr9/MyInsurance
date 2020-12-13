@@ -1,13 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using HinovaProvaAdapter;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyInsurance.Application;
+using MyInsurance.Domain.Adapters;
+using MyInsurance.Domain.Services;
+using AutoMapper;
 
 namespace MyInsurance.WebApplication
 {
@@ -23,7 +23,25 @@ namespace MyInsurance.WebApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(HinovaProfile));
+
             services.AddControllersWithViews();
+            services.AddScoped<IHinovaAdapter, HinovaAdapter>();
+            services.AddScoped<IOficinaService, OficinaService>();
+
+            //services.AddApplication
+            //   (Configuration.SafeGet<ApplicationConfiguration>());
+
+            //services.AddAtomicsAdapter
+            //    (Configuration.SafeGet<AtomicsAdapterConfiguration>());
+
+            services.AddSingleton<IConfiguration>(Configuration);
+
+            var preciseConfig = Configuration.GetSection("HinovaAdapterConfiguration").Get<HinovaAdapterConfiguration>();
+              //Configuration.GetSection("HinovaAdapterConfiguration:root:inner").Bind(preciseConfig);
+
+            services.AddHinovaAdapter(preciseConfig);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
