@@ -1,9 +1,8 @@
 ﻿using HinovaProvaAdapter;
 using HinovaProvaAdapter.Clients;
-using Microsoft.Extensions.DependencyInjection;
 using MyInsurance.Domain.Adapters;
-using System;
 using Refit;
+using System;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -28,22 +27,6 @@ namespace Microsoft.Extensions.DependencyInjection
 
             services.AddSingleton
                 (hinovaAdapterConfiguration);
-
-            //services.AddScoped(serviceProvider =>
-            //{
-            //    var httpClientFactory = serviceProvider
-            //    .GetService<IHttpClientFactory>();
-
-            //    var httpClient = httpClientFactory
-            //       .CreateClient();
-
-            //    httpClient.BaseAddress =
-            //        new Uri(hinovaAdapterConfiguration
-            //            .ApiUrlBase);
-
-            //    return RestService
-            //        .For<IHinovaWebApi>(httpClient);
-            //});
 
             services.AddRefitClient<IHinovaWebApi>()
                .ConfigureHttpClient(

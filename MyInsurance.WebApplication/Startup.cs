@@ -27,20 +27,10 @@ namespace MyInsurance.WebApplication
 
             services.AddControllersWithViews();
             services.AddScoped<IHinovaAdapter, HinovaAdapter>();
-            services.AddScoped<IOficinaService, OficinaService>();
-
-            //services.AddApplication
-            //   (Configuration.SafeGet<ApplicationConfiguration>());
-
-            //services.AddAtomicsAdapter
-            //    (Configuration.SafeGet<AtomicsAdapterConfiguration>());
-
-            services.AddSingleton<IConfiguration>(Configuration);
-
-            var preciseConfig = Configuration.GetSection("HinovaAdapterConfiguration").Get<HinovaAdapterConfiguration>();
-              //Configuration.GetSection("HinovaAdapterConfiguration:root:inner").Bind(preciseConfig);
-
-            services.AddHinovaAdapter(preciseConfig);
+            services.AddScoped<IOficinaService, OficinaService>();         
+            services.AddSingleton<IConfiguration>(Configuration);     
+            services.AddHinovaAdapter(Configuration.GetSection("HinovaAdapterConfiguration")
+                .Get<HinovaAdapterConfiguration>());
 
         }
 
