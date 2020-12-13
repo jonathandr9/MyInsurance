@@ -4,4 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyInsurance.Domain\MyInsurance.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
