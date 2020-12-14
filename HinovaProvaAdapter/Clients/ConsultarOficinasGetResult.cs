@@ -2,7 +2,7 @@
 
 namespace HinovaProvaAdapter.Clients
 {
-    public class ListaOficina
+    public class ListaOficinaDto
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -20,15 +20,15 @@ namespace HinovaProvaAdapter.Clients
         public bool Ativo { get; set; }
     }
 
-    public class RetornoErro
+    public class RetornoErroOficinaDto
     {
         public object retornoErro { get; set; }
     }
 
     public class ConsultarOficinasGetResult
     {
-        public List<ListaOficina> ListaOficinas { get; set; }
-        public RetornoErro RetornoErro { get; set; }
+        public List<ListaOficinaDto> ListaOficinas { get; set; }
+        public RetornoErroOficinaDto RetornoErro { get; set; }
         public object Token { get; set; }
     }
 

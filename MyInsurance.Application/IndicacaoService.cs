@@ -1,6 +1,7 @@
 ﻿using MyInsurance.Domain.Adapters;
 using MyInsurance.Domain.Models;
 using MyInsurance.Domain.Services;
+using System;
 using System.Threading.Tasks;
 
 namespace MyInsurance.Application
@@ -15,7 +16,9 @@ namespace MyInsurance.Application
         }
         public async Task<RetornoIndicacao> IncluirIndicacao(EntradaIndicacao entradaIndicacao)
         {
-            return await _hinovaAdapter.IncluirIndicacao(entradaIndicacao);
+            var retorno = await _hinovaAdapter.IncluirIndicacao(entradaIndicacao);            
+
+            return retorno;
         }
     }
 }

@@ -8,8 +8,10 @@ namespace HinovaProvaAdapter
     {
         public HinovaProfile()
         {
-            CreateMap<ListaOficina, Oficina>();
+            CreateMap<ListaOficinaDto, Oficina>();
             CreateMap<IncluirIndicacaoPostResult, RetornoIndicacao>();
+            CreateMap<RetornoErroIndicacaoDto, RetornoErro>();
+            CreateMap<RetornoErroOficinaDto, RetornoErro>();
         }
     }
 }

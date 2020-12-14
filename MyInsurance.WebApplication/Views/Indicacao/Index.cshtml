@@ -5,6 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@if (!String.IsNullOrEmpty(ViewBag.Error))
+{
+    @:<script type="text/javascript">alert('@ViewBag.Error')</script>
+}
+
 <h1>View</h1>
 
 <h4>EntradaIndicacao</h4>
@@ -78,10 +83,6 @@
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

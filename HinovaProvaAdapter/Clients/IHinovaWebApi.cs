@@ -34,6 +34,6 @@ namespace HinovaProvaAdapter.Clients
         /// </returns>        
         [Post("/api/Indicacao")]
         Task<IncluirIndicacaoPostResult> IncluirIndicacaoAsync(
-            [Body]EntradaIndicacao entradaIndicacao);
+            [Body] EntradaIndicacao entradaIndicacao);
     }
 }

@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Logging;
 using MyInsurance.Domain.Models;
 using MyInsurance.Domain.Services;
+using System;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace MyInsurance.WebApplication.Controllers
@@ -25,15 +27,18 @@ namespace MyInsurance.WebApplication.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(EntradaIndicacao entradaIndicacao)
         {
-            RetornoIndicacao retorno;
+            RetornoIndicacao retorno = null;
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) ViewBag.Error = "Erro no preenchimento dos campos";
             {
                 retorno = await _indicacaoService.IncluirIndicacao(entradaIndicacao);
 
-            }
+                if (String.IsNullOrEmpty(retorno.Sucesso))                
+                    ViewBag.Error = retorno.RetornoErro.retornoErro;                   
+            }       
 
-            return View();
+            return (retorno == null || String.IsNullOrEmpty(retorno.Sucesso)) ?
+                    View("Index"): View();
         }
     }
 }
