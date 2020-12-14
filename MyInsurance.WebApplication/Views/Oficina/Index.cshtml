@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label">Cpf do Associado:</label>
-                <input type="text" name="cpfAssociado" class="form-control"/>
+                <input type="text" name="cpfAssociado" id="cpfAssociado" class="form-control"/>
             </div>
             <div class="form-group">
                 <input type="submit" value="Pesquisar" class="btn btn-primary" />
@@ -63,7 +63,10 @@
                         @Html.DisplayFor(modelItem => item.Ativo)
                     </td>
                     <td>
-                        @Html.ActionLink("Detalhes", "Detalhes", new { /* id=item.PrimaryKey */ })
+                        @Html.ActionLink("Detalhes", "Detalhes",
+                            new {ID = item.Id, 
+                                 CodigoAssociacao = item.CodigoAssociacao
+                            })
                     </td>
                 </tr>
             }
