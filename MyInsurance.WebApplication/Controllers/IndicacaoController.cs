@@ -3,7 +3,6 @@ using Microsoft.Extensions.Logging;
 using MyInsurance.Domain.Models;
 using MyInsurance.Domain.Services;
 using System;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MyInsurance.WebApplication.Controllers

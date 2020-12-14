@@ -4,7 +4,6 @@ using MyInsurance.Domain.Adapters;
 using MyInsurance.Domain.Models;
 using MyInsurance.Domain.Services;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
 

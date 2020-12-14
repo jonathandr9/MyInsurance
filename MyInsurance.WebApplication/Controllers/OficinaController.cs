@@ -18,20 +18,17 @@ namespace MyInsurance.WebApplication.Controllers
             _logger = logger;
             _oficinaService = oficinaService;
         }
-        public async Task<IActionResult> IndexAsync()
+        public IActionResult IndexAsync()
         {
-            IEnumerable<Oficina> listaOficinasResult =
-              await _oficinaService.ConsultarOficinas(601, "");
-
-            return View(listaOficinasResult);
+            return View();
         }
-
-        public async Task<IActionResult> Pesquisa(int codigoAssociacao, string cpfAssociado)
+        [HttpPost]
+        public async Task<IActionResult> Pesquisar(int codigoAssociacao, string cpfAssociado)
         {            
             IEnumerable<Oficina> listaOficinasResult =
                  await _oficinaService.ConsultarOficinas(codigoAssociacao, cpfAssociado);
 
-            return View(listaOficinasResult);
+            return View("Index",listaOficinasResult);
 
         }
     }
