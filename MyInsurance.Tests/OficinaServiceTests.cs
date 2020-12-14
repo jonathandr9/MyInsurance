@@ -37,9 +37,9 @@ namespace MyInsurance.Tests
             List<Oficina> oficinasExpected = new List<Oficina>();
             oficinasExpected.Add(oficina);
 
-            Moq.Mock<IHinovaAdapter> sqlAdapterMoq = new Moq.Mock<IHinovaAdapter>();
-            sqlAdapterMoq.Setup(x => x.ConsultarOficinas(It.IsAny<int>(), It.IsAny<string>())).ReturnsAsync(oficinasExpected);
-            IOficinaService saleService = new OficinaService(sqlAdapterMoq.Object);
+            Moq.Mock<IHinovaAdapter> hinovaAdapterMoq = new Moq.Mock<IHinovaAdapter>();
+            hinovaAdapterMoq.Setup(x => x.ConsultarOficinas(It.IsAny<int>(), It.IsAny<string>())).ReturnsAsync(oficinasExpected);
+            IOficinaService saleService = new OficinaService(hinovaAdapterMoq.Object);
 
             //Act
             var result = await saleService.ConsultarOficinas(601,"");

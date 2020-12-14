@@ -16,8 +16,7 @@ namespace HinovaProvaAdapter.Clients
         /// </param>
         /// <returns>
         ///     Retorna as oficinas.
-        /// </returns>
-        //[Get("/Api/Oficina?codigoAssociacao=601&cpfAssociado=")]
+        /// </returns>        
         [Get("/Api/Oficina")]
         Task<ConsultarOficinasGetResult> ConsultarOficinasAsync(
             int codigoAssociacao, 

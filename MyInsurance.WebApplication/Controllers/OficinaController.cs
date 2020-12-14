@@ -27,7 +27,7 @@ namespace MyInsurance.WebApplication.Controllers
         }
 
         public async Task<IActionResult> Pesquisa(int codigoAssociacao, string cpfAssociado)
-        {
+        {            
             IEnumerable<Oficina> listaOficinasResult =
                  await _oficinaService.ConsultarOficinas(codigoAssociacao, cpfAssociado);
 

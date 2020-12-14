@@ -30,5 +30,10 @@ namespace HinovaProvaAdapter
 
             return _mapper.Map<IEnumerable<Oficina>>(resposta.ListaOficinas);
         }
+
+        public Task<RetornoIndicacao> IncluirIndicacao(EntradaIndicacao entradaIndicacao)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
