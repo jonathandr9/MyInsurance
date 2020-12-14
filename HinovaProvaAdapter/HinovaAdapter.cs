@@ -31,9 +31,13 @@ namespace HinovaProvaAdapter
             return _mapper.Map<IEnumerable<Oficina>>(resposta.ListaOficinas);
         }
 
-        public Task<RetornoIndicacao> IncluirIndicacao(EntradaIndicacao entradaIndicacao)
+        public async Task<RetornoIndicacao> IncluirIndicacao(
+            EntradaIndicacao entradaIndicacao)
         {
-            throw new System.NotImplementedException();
+            var resposta = await _hinovaApi.
+                IncluirIndicacaoAsync(entradaIndicacao);
+
+            return _mapper.Map<RetornoIndicacao>(resposta);
         }
     }
 }

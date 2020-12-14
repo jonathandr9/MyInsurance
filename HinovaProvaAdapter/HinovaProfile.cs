@@ -9,6 +9,7 @@ namespace HinovaProvaAdapter
         public HinovaProfile()
         {
             CreateMap<ListaOficina, Oficina>();
+            CreateMap<IncluirIndicacaoPostResult, RetornoIndicacao>();
         }
     }
 }

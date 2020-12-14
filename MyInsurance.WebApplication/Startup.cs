@@ -28,6 +28,7 @@ namespace MyInsurance.WebApplication
             services.AddControllersWithViews();
             services.AddScoped<IHinovaAdapter, HinovaAdapter>();
             services.AddScoped<IOficinaService, OficinaService>();         
+            services.AddScoped<IIndicacaoService, IndicacaoService>();         
             services.AddSingleton<IConfiguration>(Configuration);     
             services.AddHinovaAdapter(Configuration.GetSection("HinovaAdapterConfiguration")
                 .Get<HinovaAdapterConfiguration>());

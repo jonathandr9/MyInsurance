@@ -1,0 +1,89 @@
+﻿@model MyInsurance.Domain.Models.EntradaIndicacao
+
+@{
+    ViewData["Title"] = "Indicação";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>View</h1>
+
+<h4>EntradaIndicacao</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Indicacao.CodigoAssociacao" class="control-label"></label>
+                <input asp-for="Indicacao.CodigoAssociacao" class="form-control" />
+                <span asp-validation-for="Indicacao.CodigoAssociacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Indicacao.DataCriacao" class="control-label"></label>
+                <input asp-for="Indicacao.DataCriacao" class="form-control" />
+                <span asp-validation-for="Indicacao.DataCriacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Indicacao.CpfAssociado" class="control-label"></label>
+                <input asp-for="Indicacao.CpfAssociado" class="form-control" />
+                <span asp-validation-for="Indicacao.CpfAssociado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Indicacao.EmailAssociado" class="control-label"></label>
+                <input asp-for="Indicacao.EmailAssociado" class="form-control" />
+                <span asp-validation-for="Indicacao.EmailAssociado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Indicacao.NomeAssociado" class="control-label"></label>
+                <input asp-for="Indicacao.NomeAssociado" class="form-control" />
+                <span asp-validation-for="Indicacao.NomeAssociado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Indicacao.TelefoneAssociado" class="control-label"></label>
+                <input asp-for="Indicacao.TelefoneAssociado" class="form-control" />
+                <span asp-validation-for="Indicacao.TelefoneAssociado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Indicacao.PlacaVeiculoAssociado" class="control-label"></label>
+                <input asp-for="Indicacao.PlacaVeiculoAssociado" class="form-control" />
+                <span asp-validation-for="Indicacao.PlacaVeiculoAssociado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Indicacao.NomeAmigo" class="control-label"></label>
+                <input asp-for="Indicacao.NomeAmigo" class="form-control" />
+                <span asp-validation-for="Indicacao.NomeAmigo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Indicacao.TelefoneAmigo" class="control-label"></label>
+                <input asp-for="Indicacao.TelefoneAmigo" class="form-control" />
+                <span asp-validation-for="Indicacao.TelefoneAmigo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Indicacao.EmailAmigo" class="control-label"></label>
+                <input asp-for="Indicacao.EmailAmigo" class="form-control" />
+                <span asp-validation-for="Indicacao.EmailAmigo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Indicacao.Observacao" class="control-label"></label>
+                <input asp-for="Indicacao.Observacao" class="form-control" />
+                <span asp-validation-for="Indicacao.Observacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remetente" class="control-label"></label>
+                <input asp-for="Remetente" class="form-control" />
+                <span asp-validation-for="Remetente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
