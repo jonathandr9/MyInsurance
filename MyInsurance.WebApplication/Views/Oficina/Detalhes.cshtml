@@ -5,98 +5,78 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Detalhes</h1>
+<div>
+    <a asp-action="Index"><h4>◄ Voltar a lista</h4></a>
+</div>
+
+<div class="row">
+   <img class="col-md-3" src="data:image/png;base64,@Html.DisplayFor(model => model.Foto)" alt="Foto" />
+    <h1 class="col-md-6">@Html.DisplayFor(model => model.Nome)</h1>       
+</div>
 
 <div>
-    <h4>Oficina</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
+        <dt class="col-md-3">
+            Descrição:
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-md-9">
             @Html.DisplayFor(model => model.Descricao)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DescricaoCurta)
+        <dt class="col-md-3">
+            Avaliação dos Usuários:
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DescricaoCurta)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Endereco)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Endereco)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Latitude)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Latitude)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Longitude)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Longitude)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Foto)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Foto)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AvaliacaoUsuario)
-        </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-md-9">
             @Html.DisplayFor(model => model.AvaliacaoUsuario)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CodigoAssociacao)
+        <dt class="col-md-3">
+            Código da Associação:
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-md-9">
             @Html.DisplayFor(model => model.CodigoAssociacao)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
+        <dt class="col-md-3">
+            @Html.DisplayNameFor(model => model.Email):
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-md-9">
             @Html.DisplayFor(model => model.Email)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefone1)
+        <dt class="col-md-3">
+            @Html.DisplayNameFor(model => model.Telefone1):
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-md-9">
             @Html.DisplayFor(model => model.Telefone1)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefone2)
+        <dt class="col-md-3">
+            @Html.DisplayNameFor(model => model.Telefone2):
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-md-9">
             @Html.DisplayFor(model => model.Telefone2)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ativo)
+        <dt class="col-md-3">
+            @Html.DisplayNameFor(model => model.Ativo):
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-md-9">
             @Html.DisplayFor(model => model.Ativo)
+        </dd>
+        <dt class="col-md-3">
+           Endereço:
+        </dt>
+        <dd class="col-md-9">
+            @Html.DisplayFor(model => model.Endereco)
         </dd>
     </dl>
 </div>
-<div>    
-    <a asp-action="Index">Voltar a lista</a>
+
+<div class="row justify-content-center">
+
+    <iframe width="300"
+            height="170"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+            src="https://maps.google.com/maps?q=@Html.DisplayFor(model => model.Latitude),@Html.DisplayFor(model => model.Longitude)&hl=pt;z=14&amp;output=embed">
+    </iframe>
 </div>
+
